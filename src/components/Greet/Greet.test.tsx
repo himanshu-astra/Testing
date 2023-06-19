@@ -1,8 +1,14 @@
 import { render, screen } from "@testing-library/react"
 import { Greet } from "./Greet"
 
-test('should render Hello', () => {
+test('Greet renders correctly', () => {
     render(<Greet />);
     const greetElement = screen.getByTestId("greet");
-    expect(greetElement).toBeInTheDocument();
+    expect(greetElement.textContent).toEqual("Hello");
+})
+
+test('Greet renders with name', () => {
+    render(<Greet name="Himanshu" />);
+    const greetElement = screen.getByTestId("greet");
+    expect(greetElement.textContent).toEqual("Hello Himanshu");
 })
